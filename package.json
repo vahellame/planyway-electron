@@ -1,0 +1,60 @@
+{
+  "name": "planyway",
+  "version": "1.0.0",
+  "description": "Planyway Electron app",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron .",
+    "build": "electron-builder",
+    "postinstall": "chmod +x planyway.sh"
+  },
+  "homepage": "https://github.com/vahellame/planyway-electron",
+  "author": {
+    "name": "Vadim Reznichenko",
+    "email": "vahellame@gmail.com"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "electron-localshortcut": "^3.2.1"
+  },
+  "devDependencies": {
+    "electron": "^24.1.3",
+    "electron-builder": "^24.3.0"
+  },
+  "build": {
+    "appId": "me.vahella.planyway",
+    "productName": "Planyway",
+    "mac": {
+      "icon": "icon.png"
+    },
+    "linux": {
+      "icon": "icon.png",
+      "target": [
+        "AppImage",
+        "pacman",
+        "deb",
+        "snap",
+        "tar.gz"
+      ],
+      "extraResources": [
+        {
+          "from": "resources/planyway.desktop",
+          "to": "usr/share/applications/planyway.desktop",
+          "filter": [
+            "planyway.desktop"
+          ]
+        },
+        {
+          "from": "resources/planyway.sh",
+          "to": "usr/bin/planyway",
+          "filter": [
+            "planyway.sh"
+          ]
+        }
+      ]
+    },
+    "win": {
+      "icon": "icon.png"
+    }
+  }
+}
