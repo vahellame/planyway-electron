@@ -45,13 +45,13 @@ app.whenReady().then(() => {
 
   const contextMenu = Menu.buildFromTemplate([
     {
-      label: 'Перезагрузить страницу',
+      label: 'Reload',
       click: () => {
         window.reload()
       },
     },
     {
-      label: 'Выйти из приложения',
+      label: 'Exit',
       click: () => {
         app.isQuiting = true
         app.quit()
