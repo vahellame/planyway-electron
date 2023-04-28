@@ -1,12 +1,11 @@
 {
-  "name": "planyway",
+  "name": "planyway-electron",
   "version": "1.0.0",
   "description": "Planyway Electron app",
   "main": "main.js",
   "scripts": {
     "start": "electron .",
-    "build": "electron-builder",
-    "postinstall": "chmod +x planyway.sh"
+    "build": "electron-builder"
   },
   "homepage": "https://github.com/vahellame/planyway-electron",
   "author": {
@@ -22,19 +21,15 @@
     "electron-builder": "^24.3.0"
   },
   "build": {
-    "appId": "me.vahella.planyway",
+    "appId": "me.vahella.planyway-electron",
     "productName": "Planyway",
-    "mac": {
-      "icon": "icon.png"
+    "directories": {
+      "buildResources": "resources"
     },
     "linux": {
-      "icon": "icon.png",
+      "icon": "icons",
       "target": [
-        "AppImage",
-        "pacman",
-        "deb",
-        "snap",
-        "tar.gz"
+        "pacman"
       ],
       "extraResources": [
         {
@@ -50,11 +45,83 @@
           "filter": [
             "planyway.sh"
           ]
+        },
+        {
+          "from": "resources/icons/16x16.png",
+          "to": "usr/share/icons/hicolor/16x16/apps/planyway.png"
+        },
+        {
+          "from": "resources/icons/22x22.png",
+          "to": "usr/share/icons/hicolor/22x22/apps/planyway.png"
+        },
+        {
+          "from": "resources/icons/24x24.png",
+          "to": "usr/share/icons/hicolor/24x24/apps/planyway.png"
+        },
+        {
+          "from": "resources/icons/32x32.png",
+          "to": "usr/share/icons/hicolor/32x32/apps/planyway.png"
+        },
+        {
+          "from": "resources/icons/36x36.png",
+          "to": "usr/share/icons/hicolor/36x36/apps/planyway.png"
+        },
+        {
+          "from": "resources/icons/44x44.png",
+          "to": "usr/share/icons/hicolor/44x44/apps/planyway.png"
+        },
+        {
+          "from": "resources/icons/48x48.png",
+          "to": "usr/share/icons/hicolor/48x48/apps/planyway.png"
+        },
+        {
+          "from": "resources/icons/64x64.png",
+          "to": "usr/share/icons/hicolor/64x64/apps/planyway.png"
+        },
+        {
+          "from": "resources/icons/72x72.png",
+          "to": "usr/share/icons/hicolor/72x72/apps/planyway.png"
+        },
+        {
+          "from": "resources/icons/96x96.png",
+          "to": "usr/share/icons/hicolor/96x96/apps/planyway.png"
+        },
+        {
+          "from": "resources/icons/128x128.png",
+          "to": "usr/share/icons/hicolor/128x128/apps/planyway.png"
+        },
+        {
+          "from": "resources/icons/150x150.png",
+          "to": "usr/share/icons/hicolor/150x150/apps/planyway.png"
+        },
+        {
+          "from": "resources/icons/192x192.png",
+          "to": "usr/share/icons/hicolor/192x192/apps/planyway.png"
+        },
+        {
+          "from": "resources/icons/256x256.png",
+          "to": "usr/share/icons/hicolor/256x256/apps/planyway.png"
+        },
+        {
+          "from": "resources/icons/310x310.png",
+          "to": "usr/share/icons/hicolor/310x310/apps/planyway.png"
+        },
+        {
+          "from": "resources/icons/384x384.png",
+          "to": "usr/share/icons/hicolor/384x384/apps/planyway.png"
+        },
+        {
+          "from": "resources/icons/512x512.png",
+          "to": "usr/share/icons/hicolor/512x512/apps/planyway.png"
+        },
+        {
+          "from": "resources/icons/1024x1024.png",
+          "to": "usr/share/icons/hicolor/1024x1024/apps/planyway.png"
         }
       ]
     },
     "win": {
-      "icon": "icon.png"
+      "icon": "icons/planyway.ico"
     }
   }
 }

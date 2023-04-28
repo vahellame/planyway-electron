@@ -4,7 +4,20 @@ const { screen } = require('electron')
 
 let window = null
 let tray = null
+const gotTheLock = app.requestSingleInstanceLock()
 
+if (!gotTheLock) {
+  app.quit()
+} else {
+  app.on('second-instance', (event, commandLine, workingDirectory) => {
+    // Когда пользователь пытается открыть второй экземпляр, мы должны сфокусироваться на нашем главном окне.
+    if (window) {
+      if (window.isMinimized()) window.restore()
+      window.focus()
+    }
+  })
+  // Создание окна и другие события приложения здесь...
+}
 function createWindow() {
   const { width, height } = screen.getPrimaryDisplay().workAreaSize
 
@@ -25,11 +38,6 @@ function createWindow() {
 
   window.on('closed', () => {
     window = null
-  })
-
-  window.on('minimize', (event) => {
-    event.preventDefault()
-    window.hide()
   })
 
   window.on('close', (event) => {
